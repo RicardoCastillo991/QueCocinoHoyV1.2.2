@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3675" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3675" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/layout/activity_main_inicio.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/layout/activity_main_register.xml" value="0.33" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/layout/list_element.xml" value="0.33" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3675" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2885" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1315" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1315" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/layout/activity_main_inicio.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/layout/activity_main_register.xml" value="0.30480072463768115" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/layout/activity_main_splash.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/layout/list_element.xml" value="0.30480072463768115" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy092122/app/src/main/res/layout/splash.xml" value="0.22" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3675" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/activity_main_inicio.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/activity_main_register.xml" value="0.25" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/activity_main_register2_step.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/activity_main_splash.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/activity_profile.xml" value="0.5" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy10/06/22/app/src/main/res/layout/list_element.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy261022/app/src/main/res/layout/activity_main_inicio.xml" value="0.3473731884057971" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy261022/app/src/main/res/layout/activity_main_register.xml" value="0.3473731884057971" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy261022/app/src/main/res/layout/activity_main_register2_step.xml" value="0.3473731884057971" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy261022/app/src/main/res/layout/activity_main_splash.xml" value="0.3473731884057971" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoy261022/app/src/main/res/layout/activity_map.xml" value="0.3473731884057971" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoyPropio/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoyPropio/app/src/main/res/layout/activity_main_inicio.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoyPropio/app/src/main/res/layout/activity_main_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Estudio/AndroidStudioProjects/QueCocinoHoyPropio/app/src/main/res/layout/list_element.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy-b170115655a1496654db8aa28c6bdee0f388bd6a/app/src/main/res/layout/activity_main_inicio.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy-b170115655a1496654db8aa28c6bdee0f388bd6a/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy-b170115655a1496654db8aa28c6bdee0f388bd6a/app/src/main/res/layout/list_element.xml" value="0.4" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2095" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2095" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/layout/activity_main_inicio.xml" value="0.5224839400428265" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/layout/activity_main_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/layout/activity_main_register2_step.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/layout/activity_main_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/layout/activity_profile.xml" value="0.536" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy191022/app/src/main/res/layout/list_element.xml" value="0.6" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy210922/app/src/main/res/layout/activity_main_register.xml" value="0.4" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy251022/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy251022/app/src/main/res/layout/activity_main_inicio.xml" value="0.536" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy251022/app/src/main/res/layout/activity_main_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy251022/app/src/main/res/layout/activity_main_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy251022/app/src/main/res/layout/activity_map.xml" value="0.3592233009708738" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy270922v2/app/src/main/res/layout/activity_main_inicio.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy270922v2/app/src/main/res/layout/activity_main_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoy270922v2/app/src/main/res/layout/activity_main_register2_step.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoyFinal/app/src/main/res/layout/activity_main_register.xml" value="0.1" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoyVersionPropia/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoyVersionPropia/app/src/main/res/layout/activity_main_inicio.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ricar/StudioProjects/QueCocinoHoyVersionPropia/app/src/main/res/layout/list_element.xml" value="0.4" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
