@@ -22,13 +22,12 @@ public class MainActivityInicio extends AppCompatActivity {
         setContentView(R.layout.activity_main_inicio);
         btnMap = (ImageButton)findViewById(R.id.imgButtonUbicacion);
         btnProfile = (ImageButton)findViewById(R.id.imgButtonPerfil);
-        btnMap.setVisibility(View.INVISIBLE);
         init();
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivityInicio.this , MapActivity.class);
+                Intent intent = new Intent(MainActivityInicio.this , MapsActivity.class);
                 startActivity(intent);
             }
         });

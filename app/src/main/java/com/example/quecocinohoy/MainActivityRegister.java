@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
@@ -80,7 +81,7 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         btnRegistrar2Step.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(verificarCorreo() == ){
+                if(verificarCorreo() == true){
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -133,22 +134,26 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         }
     }
 
-    public String verificarCorreo() {
+    public boolean verificarCorreo() {
         try {
             String correo = txtCorreo.getText().toString();
             SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
-            String sql = "SELECT nombre FROM persona WHERE nombre = '" + correo + "'";
+            String sql = "SELECT nombre FROM persona WHERE correo = '"+correo+"'";
             SQLiteStatement statement = db.compileStatement(sql);
+            Cursor cursor = db.rawQuery("SELECT id FROM persona WHERE correo = ?" ,new String[]{correo} );
             statement.execute();
-            String validacion = statement.toString();
-            return validacion;
-
+            if(cursor.getCount() > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         catch (Exception e) {
             Toast.makeText(this, "El correo ingresado ya ha sido registrado.", Toast.LENGTH_LONG).show();
             txtCorreo.setText("");
+            return true;
         }
-        return null;
     }
 
 
