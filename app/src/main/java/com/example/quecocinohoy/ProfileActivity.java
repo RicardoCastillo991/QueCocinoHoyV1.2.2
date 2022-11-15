@@ -15,10 +15,14 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        tvNombre =(TextView)findViewById(R.id.txtProfileNombre);
-        tvCorreo =(TextView)findViewById(R.id.txtProfileCorreo);
-        tvEdad =(TextView)findViewById(R.id.txtProfileEdad);
-        tvSexo =(TextView)findViewById(R.id.txtProfileSexo);
-        tvComidaFav =(TextView)findViewById(R.id.txtProfileComidaFav);
+        tvNombre = findViewById(R.id.txtProfileNombre);
+        tvCorreo = findViewById(R.id.txtProfileCorreo);
+        tvEdad = findViewById(R.id.txtProfileEdad);
+        tvSexo = findViewById(R.id.txtProfileSexo);
+        tvComidaFav = findViewById(R.id.txtProfileComidaFav);
+        String correo = getIntent().getExtras().getString("correo");
+
     }
+
+
 }

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -32,8 +34,6 @@ public class MainActivityRegister2Step extends AppCompatActivity {
         btnMostrarPass = (ImageButton)findViewById(R.id.imgbtnMostrarPass);
         txtPass = (EditText) findViewById(R.id.txtPassRegister);
         txtPassDos = (EditText) findViewById(R.id.txtPassDosRegister);
-        ArrayList<String> ArrayPassUsuario = new ArrayList<String>();
-        ArrayList<String> datosCompletos = getIntent().getStringArrayListExtra("datos");
 
         btnMostrarPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,11 +57,10 @@ public class MainActivityRegister2Step extends AppCompatActivity {
             public void onClick(View view) {
                 if(!(txtPass.getText().toString().equals("") && txtPassDos.getText().toString().equals(""))){
                     if(txtPass.getText().toString().equals(txtPassDos.getText().toString())){
-                        ArrayPassUsuario.add(passUsuario);
+                        Intent intentPass = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
+                        String correo = intentPass.getStringExtra("correoUsuario");
+                        insertarPass(passUsuario, correo);
                         Intent intent = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putStringArrayList("datosCompletos", datosCompletos);
-                        bundle.putStringArrayList("passUsuario", ArrayPassUsuario);
                         Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                         vibrator.vibrate(1500);
                         startActivity(intent);
@@ -80,5 +79,18 @@ public class MainActivityRegister2Step extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void insertarPass(String passUsuario, String correo){
+        try {
+            SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
+            String sql = "UPDATE persona SET passUsuario = '"+ passUsuario+"' WHERE correo = '"+correo+"'";
+            SQLiteStatement statement = db.compileStatement(sql);
+            statement.execute();
+            Toast.makeText(this, "Datos agregados satisfactoriamente en la base de datos.", Toast.LENGTH_LONG).show();
+        }
+        catch (Exception ex) {
+            Toast.makeText(this, "Error no se pudieron guardar los datos.", Toast.LENGTH_LONG).show();
+        }
     }
 }

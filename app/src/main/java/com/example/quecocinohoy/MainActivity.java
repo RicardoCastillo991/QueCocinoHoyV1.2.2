@@ -3,14 +3,19 @@ package com.example.quecocinohoy;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.view.*;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -73,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 String passwordIngresar;
                 correoIngresar = txtCorreoIngresar.getText().toString();
                 passwordIngresar = txtPasswordIngresar.getText().toString();
-                if(correoIngresar.equals("hola1@gmail.com") && passwordIngresar.equals("1234")){
+                if(verificarCuenta(correoIngresar, passwordIngresar) == true){
                     Intent intento = new Intent(MainActivity.this, MainActivityInicio.class);
+                    intento.putExtra( "correo", correoIngresar);
                     startActivity(intento);
                 }
                 else
@@ -83,8 +89,27 @@ public class MainActivity extends AppCompatActivity {
                     txtPasswordIngresar.setText("");
                     txtError.setVisibility(View.VISIBLE);
                 }
-        };
+            };
     });
+    }
+    public boolean verificarCuenta(String correo, String pass) {
+        try {
+            SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
+            String sql = "SELECT id FROM persona WHERE correo = '" + correo + "' AND passUser = '"+pass+"'";
+            SQLiteStatement statement = db.compileStatement(sql);
+            statement.execute();
+            Cursor cursor = db.rawQuery(sql, null);
+            if(cursor.getCount() > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(this, "El correo no se encuentra ingresado en la base de datos.", Toast.LENGTH_LONG).show();
+            return false;
+        }
     }
 
 

@@ -90,6 +90,9 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
                     });
                     Intent intent = new Intent(MainActivityRegister.this , MainActivityRegister2Step.class);
                     startActivity(intent);
+                    Bundle bundle = new Bundle();
+                    String correoUser = txtCorreo.getText().toString();
+                    bundle.putString("CorreoUser", correoUser);
                     Toast registroExitoso = Toast.makeText(MainActivityRegister.this, "¡Registro casi completado!", Toast.LENGTH_LONG);
                     registroExitoso.show();
                 }
@@ -120,8 +123,8 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
             String correo = txtCorreo.getText().toString();
             String edad = String.valueOf(valorSeekBar);
             SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
-            db.execSQL("CREATE TABLE IF NOT EXISTS persona(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre VARCHAR,apellido VARCHAR,correo VARCHAR, edad VARCHAR)");
-            String sql = "insert into persona(nombre,apellido,edad)values(?,?,?)";
+            db.execSQL("CREATE TABLE IF NOT EXISTS persona(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre VARCHAR,apellido VARCHAR,correo VARCHAR, edad VARCHAR, passUsuario VARCHAR)");
+            String sql = "insert into persona(nombre,apellido,correo,edad)values(?,?,?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
             statement.bindString(1, nombre);
             statement.bindString(2, apellido);
@@ -129,7 +132,8 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
             statement.bindString(4, edad);
             statement.execute();
             Toast.makeText(this, "Datos agregados satisfactoriamente en la base de datos.", Toast.LENGTH_LONG).show();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             Toast.makeText(this, "Error no se pudieron guardar los datos.", Toast.LENGTH_LONG).show();
         }
     }
