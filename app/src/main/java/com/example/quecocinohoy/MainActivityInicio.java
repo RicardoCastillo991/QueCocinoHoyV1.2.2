@@ -22,7 +22,8 @@ public class MainActivityInicio extends AppCompatActivity {
         setContentView(R.layout.activity_main_inicio);
         btnMap = (ImageButton)findViewById(R.id.imgButtonUbicacion);
         btnProfile = (ImageButton)findViewById(R.id.imgButtonPerfil);
-        String correo = getIntent().getExtras().getString("correo");
+        Bundle datos = MainActivityInicio.this.getIntent().getExtras();
+        String correo = datos.getString("CorreoUsuario");
         init();
 
         btnMap.setOnClickListener(new View.OnClickListener() {

@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.quecocinohoy.db.DbHelper;
+
 import java.util.ArrayList;
 
 
@@ -30,10 +32,10 @@ public class MainActivityRegister2Step extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_register2_step);
-        btnInicio = (Button) findViewById(R.id.btnInicio);
-        btnMostrarPass = (ImageButton)findViewById(R.id.imgbtnMostrarPass);
-        txtPass = (EditText) findViewById(R.id.txtPassRegister);
-        txtPassDos = (EditText) findViewById(R.id.txtPassDosRegister);
+        btnInicio = findViewById(R.id.btnInicio);
+        btnMostrarPass = findViewById(R.id.imgbtnMostrarPass);
+        txtPass = findViewById(R.id.txtPassRegister);
+        txtPassDos = findViewById(R.id.txtPassDosRegister);
 
         btnMostrarPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,12 +59,13 @@ public class MainActivityRegister2Step extends AppCompatActivity {
             public void onClick(View view) {
                 if(!(txtPass.getText().toString().equals("") && txtPassDos.getText().toString().equals(""))){
                     if(txtPass.getText().toString().equals(txtPassDos.getText().toString())){
-                        Intent intentPass = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
-                        String correo = intentPass.getStringExtra("correoUsuario");
+                        Bundle datos = MainActivityRegister2Step.this.getIntent().getExtras();
+                        String correo = datos.getString("CorreoUsuario");
                         insertarPass(passUsuario, correo);
                         Intent intent = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
                         Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                         vibrator.vibrate(1500);
+                        intent.putExtra("CorreoUsuario",correo);
                         startActivity(intent);
                     }
                     else
@@ -83,8 +86,9 @@ public class MainActivityRegister2Step extends AppCompatActivity {
 
     public void insertarPass(String passUsuario, String correo){
         try {
-            SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
-            String sql = "UPDATE persona SET passUsuario = '"+ passUsuario+"' WHERE correo = '"+correo+"'";
+            DbHelper dbhelper = new DbHelper(MainActivityRegister2Step.this);
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            String sql = "UPDATE usuarios SET pass_usuario = '"+passUsuario+"' WHERE correo = '"+correo+"'";
             SQLiteStatement statement = db.compileStatement(sql);
             statement.execute();
             Toast.makeText(this, "Datos agregados satisfactoriamente en la base de datos.", Toast.LENGTH_LONG).show();

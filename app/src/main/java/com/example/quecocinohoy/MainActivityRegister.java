@@ -17,6 +17,9 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.quecocinohoy.db.DbHelper;
+
 import java.util.ArrayList;
 
 public class MainActivityRegister extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -81,18 +84,16 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         btnRegistrar2Step.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(verificarCorreo() == true){
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            insertar();
-                        }
-                    });
+                if(verificarCorreo(correoUsuario) == false){
                     Intent intent = new Intent(MainActivityRegister.this , MainActivityRegister2Step.class);
+                    intent.putExtra("CorreoUsuario", correoUsuario);
+                    Thread thread = new Thread(){
+                        public void run(){
+                            insertar(nombreUsuario, apellidoUsuario, correoUsuario, edadUsuario);
+                        }
+                    };
+                    thread.start();
                     startActivity(intent);
-                    Bundle bundle = new Bundle();
-                    String correoUser = txtCorreo.getText().toString();
-                    bundle.putString("CorreoUser", correoUser);
                     Toast registroExitoso = Toast.makeText(MainActivityRegister.this, "¡Registro casi completado!", Toast.LENGTH_LONG);
                     registroExitoso.show();
                 }
@@ -116,20 +117,12 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
 
     }
 
-    public void insertar() {
+    public void insertar(String nombre, String apellido, String correo, String edad) {
         try {
-            String nombre = txtNombre.getText().toString();
-            String apellido = txtApellido.getText().toString();
-            String correo = txtCorreo.getText().toString();
-            String edad = String.valueOf(valorSeekBar);
-            SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
-            db.execSQL("CREATE TABLE IF NOT EXISTS persona(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre VARCHAR,apellido VARCHAR,correo VARCHAR, edad VARCHAR, passUsuario VARCHAR)");
-            String sql = "insert into persona(nombre,apellido,correo,edad)values(?,?,?,?)";
+            DbHelper dbhelper = new DbHelper(MainActivityRegister.this);
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            String sql = "INSERT INTO usuarios(nombre,apellido,correo,edad) values ("+nombre+","+apellido+","+correo+","+edad+")";
             SQLiteStatement statement = db.compileStatement(sql);
-            statement.bindString(1, nombre);
-            statement.bindString(2, apellido);
-            statement.bindString(3, correo);
-            statement.bindString(4, edad);
             statement.execute();
             Toast.makeText(this, "Datos agregados satisfactoriamente en la base de datos.", Toast.LENGTH_LONG).show();
         }
@@ -138,13 +131,13 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         }
     }
 
-    public boolean verificarCorreo() {
+    public boolean verificarCorreo(String correo) {
         try {
-            String correo = txtCorreo.getText().toString();
-            SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
-            String sql = "SELECT nombre FROM persona WHERE correo = '"+correo+"'";
+            DbHelper dbhelper = new DbHelper(MainActivityRegister.this);
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            String sql = "SELECT id FROM usuarios WHERE correo = ?";
             SQLiteStatement statement = db.compileStatement(sql);
-            Cursor cursor = db.rawQuery("SELECT id FROM persona WHERE correo = ?" ,new String[]{correo} );
+            Cursor cursor = db.rawQuery(sql,new String[]{correo});
             statement.execute();
             if(cursor.getCount() > 0){
                 return true;
@@ -155,7 +148,6 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         }
         catch (Exception e) {
             Toast.makeText(this, "El correo ingresado ya ha sido registrado.", Toast.LENGTH_LONG).show();
-            txtCorreo.setText("");
             return true;
         }
     }

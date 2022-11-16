@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quecocinohoy.db.DbHelper;
+
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,11 +76,9 @@ public class MainActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                String correoIngresar;
-                String passwordIngresar;
-                correoIngresar = txtCorreoIngresar.getText().toString();
-                passwordIngresar = txtPasswordIngresar.getText().toString();
-                if(verificarCuenta(correoIngresar, passwordIngresar) == true){
+                String correoIngresar = txtCorreoIngresar.getText().toString();
+                String passwordIngresar = txtPasswordIngresar.getText().toString();
+                if(verificarCuenta(correoIngresar, passwordIngresar) == false){
                     Intent intento = new Intent(MainActivity.this, MainActivityInicio.class);
                     intento.putExtra( "correo", correoIngresar);
                     startActivity(intento);
@@ -94,8 +94,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public boolean verificarCuenta(String correo, String pass) {
         try {
-            SQLiteDatabase db = openOrCreateDatabase("BD_QUECOCINOHOY", Context.MODE_PRIVATE, null);
-            String sql = "SELECT id FROM persona WHERE correo = '" + correo + "' AND passUser = '"+pass+"'";
+            DbHelper dbhelper = new DbHelper(MainActivity.this);
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            String sql = "SELECT id FROM usuarios WHERE correo = '"+correo+"' AND pass_usuario = '"+pass+"'";
             SQLiteStatement statement = db.compileStatement(sql);
             statement.execute();
             Cursor cursor = db.rawQuery(sql, null);
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (Exception e) {
             Toast.makeText(this, "El correo no se encuentra ingresado en la base de datos.", Toast.LENGTH_LONG).show();
-            return false;
+            return true;
         }
     }
 
