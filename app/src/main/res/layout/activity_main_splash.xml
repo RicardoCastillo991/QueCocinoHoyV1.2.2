@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_v2"
-    tools:context=".MainActivitySplash">
+    tools:context="quecocino.example.quecocinohoy.MainActivitySplash">
 
     <ProgressBar
         android:id="@+id/progressBar"

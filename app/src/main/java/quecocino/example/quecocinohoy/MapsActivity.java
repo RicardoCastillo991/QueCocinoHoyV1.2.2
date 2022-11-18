@@ -1,9 +1,10 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
+import com.example.quecocinohoy.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

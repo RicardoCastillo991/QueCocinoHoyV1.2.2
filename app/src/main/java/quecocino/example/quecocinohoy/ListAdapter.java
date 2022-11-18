@@ -1,4 +1,4 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.quecocinohoy.R;
 
 import java.util.List;
 

@@ -1,9 +1,11 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.quecocinohoy.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

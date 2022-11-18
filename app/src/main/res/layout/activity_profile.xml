@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/profile_backgroundv2"
 
-    tools:context=".ProfileActivity">
+    tools:context="quecocino.example.quecocinohoy.ProfileActivity">
 
     <TextView
         android:id="@+id/txtProfileNombre"

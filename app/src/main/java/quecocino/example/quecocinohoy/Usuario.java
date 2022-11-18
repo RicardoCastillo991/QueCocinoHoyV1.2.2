@@ -1,4 +1,4 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 public class Usuario {
     String nombre;

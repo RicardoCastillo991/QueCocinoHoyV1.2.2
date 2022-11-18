@@ -1,9 +1,8 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,9 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quecocinohoy.db.DbHelper;
+import com.example.quecocinohoy.R;
 
-import org.w3c.dom.Text;
+import quecocino.example.quecocinohoy.db.DbHelper;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnRegistrar;

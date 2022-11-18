@@ -1,4 +1,4 @@
-package com.example.quecocinohoy.db;
+package quecocino.example.quecocinohoy.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

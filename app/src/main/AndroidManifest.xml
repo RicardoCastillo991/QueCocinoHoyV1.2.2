@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -30,29 +32,29 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="quecocino.example.quecocinohoy.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".ProfileActivity"
+            android:name="quecocino.example.quecocinohoy.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityRegister2Step"
+            android:name="quecocino.example.quecocinohoy.MainActivityRegister2Step"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="quecocino.example.quecocinohoy.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityInicio"
+            android:name="quecocino.example.quecocinohoy.MainActivityInicio"
             android:exported="false" />
         <activity
-            android:name=".MainActivityRegister"
+            android:name="quecocino.example.quecocinohoy.MainActivityRegister"
             android:exported="false" />
         <activity
-            android:name=".MainActivitySplash"
+            android:name="quecocino.example.quecocinohoy.MainActivitySplash"
             android:exported="true"
             tools:ignore="DuplicateActivity">
             <intent-filter>

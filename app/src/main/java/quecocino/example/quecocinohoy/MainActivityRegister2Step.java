@@ -1,4 +1,4 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.os.Vibrator;
 import android.text.InputType;
 import android.view.View;
@@ -17,9 +15,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.quecocinohoy.db.DbHelper;
+import com.example.quecocinohoy.R;
 
-import java.util.ArrayList;
+import quecocino.example.quecocinohoy.db.DbHelper;
 
 
 public class MainActivityRegister2Step extends AppCompatActivity {

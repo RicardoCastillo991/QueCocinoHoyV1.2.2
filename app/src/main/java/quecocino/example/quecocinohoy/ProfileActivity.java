@@ -1,8 +1,7 @@
-package com.example.quecocinohoy;
+package quecocino.example.quecocinohoy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -11,14 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quecocinohoy.db.DbHelper;
+import com.example.quecocinohoy.R;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import quecocino.example.quecocinohoy.db.DbHelper;
 
 public class ProfileActivity extends AppCompatActivity {
     private Button btnVolver;

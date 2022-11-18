@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#B5B3B3"
-    tools:context=".MainActivityRegister2Step">
+    tools:context="quecocino.example.quecocinohoy.MainActivityRegister2Step">
 
     <TextView
         android:id="@+id/textView8"
