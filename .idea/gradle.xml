@@ -7,15 +7,14 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="openjdk-19" />
+        <option name="gradleJvm" value="Embedded JDK" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../../QueCocinoHoyV1.2/QueCocinoHoyV1.2.2/171122" />
-            <option value="$PROJECT_DIR$/../../../QueCocinoHoyV1.2/QueCocinoHoyV1.2.2/171122/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
     </option>
-    <option name="offlineMode" value="true" />
   </component>
 </project>
