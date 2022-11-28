@@ -7,55 +7,52 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quecocinohoy.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<ListElement> mData;
-    private LayoutInflater mInflater;
-    private Context context;
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
-    public ListAdapter(List<ListElement> itemList, Context context){
-        this.mInflater = LayoutInflater.from(context);
+    Context context;
+    ArrayList<Receta> list;
+
+    public ListAdapter(Context context, ArrayList<Receta> list){
         this.context = context;
-        this.mData = itemList;
+        this.list = list;
+    }
+
+    @NonNull
+    @Override
+    public ListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.list_element, parent, false);
+        return new MyViewHolder(v);
     }
 
     @Override
-    public int getItemCount(){ return mData.size(); }
-
-    @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = mInflater.inflate(R.layout.list_element,null);
-        return new ListAdapter.ViewHolder(view);
+    public void onBindViewHolder(@NonNull ListAdapter.MyViewHolder holder, int position) {
+        Receta receta = list.get(position);
+        holder.nombre.setText(receta.getNombre());
+        holder.descripcion.setText(receta.getDescripcion());
+        holder.tipo.setText(receta.getTipo());
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position){
-        holder.bindData(mData.get(position));
+    public int getItemCount() {
+        return list.size();
     }
 
-    public void setItems(List<ListElement> items){ mData = items; }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView iconImage;
-        TextView name, descripcion, tipo;
-
-        ViewHolder(View itemView){
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+        TextView nombre, descripcion, tipo;
+        public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            iconImage = itemView.findViewById(R.id.iconImageView);
-            name = itemView.findViewById(R.id.nameTextView);
+
+            nombre = itemView.findViewById(R.id.nameTextView);
             descripcion = itemView.findViewById(R.id.descripcionTextView);
             tipo = itemView.findViewById(R.id.tipoTextView);
-        }
-
-        void bindData(final ListElement item){
-            name.setText(item.getName());
-            descripcion.setText(item.getDescripcion());
-            tipo.setText(item.getTipo());
         }
     }
 }

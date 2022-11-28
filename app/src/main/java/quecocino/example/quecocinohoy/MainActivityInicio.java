@@ -1,5 +1,6 @@
 package quecocino.example.quecocinohoy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,13 +11,21 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.quecocinohoy.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivityInicio extends AppCompatActivity {
     private ImageButton btnProfile, btnMap;
-    List<ListElement> elements;
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    ListAdapter listAdapter;
+    ArrayList<Receta> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +57,29 @@ public class MainActivityInicio extends AppCompatActivity {
 
 
     public void init(){
-        elements = new ArrayList<>();
-        elements.add(new ListElement("#7754232", "Omelette", "Huevo, Jamon, Oregano ", "Desayuno"));
-        elements.add(new ListElement("#7754232", "Picante de pollo", "Pollo, Papas, Arverjas, Arroz" , "Almuerzo"));
-        elements.add(new ListElement("#7754232", "Pollo a lo pobre", "Pollo, Cebolla, Papas, Huevo", "Almuerzo"));
-        elements.add(new ListElement("#7754232", "Palta con cebolla", "Palta, Aceite, Cebolla en cuadros, Sal", "Desayuno"));
-        elements.add(new ListElement("#7754232", "Ensalada Cesar", "Pollo, Pan, Lechuga, Queso", "Cena"));
-        elements.add(new ListElement("#7754232", "Crema de zapallo", "Zapallo, Cebolla, Papa, Zanahoria", "Cena"));
-
-        ListAdapter listAdapter = new ListAdapter(elements, this);
-        RecyclerView recyclerView = findViewById(R.id.listRecicleView);
+        recyclerView = findViewById(R.id.listRecicleView);
+        database = FirebaseDatabase.getInstance().getReference("recetas");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        list = new ArrayList<>();
+        listAdapter = new ListAdapter(this, list);
         recyclerView.setAdapter(listAdapter);
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Receta receta = dataSnapshot.getValue(Receta.class);
+                    list.add(receta);
+                }
+                listAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }
